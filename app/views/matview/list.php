@@ -10,8 +10,6 @@
 <div class="card">
     <div class="card-body">
         <p class="text-muted">
-            <i class="fas fa-info-circle"></i> Data ini diambil dari VIEW <code>laporan_klinik</code> yang menampilkan 
-            agregasi jumlah kunjungan per dokter
         </p>
         <div class="table-responsive">
             <table class="table table-striped table-hover">

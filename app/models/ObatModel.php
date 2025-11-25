@@ -11,7 +11,7 @@ class ObatModel {
     }
 
     public function getAll() {
-        $query = "SELECT * FROM " . $this->table . " ORDER BY id_obat DESC";
+        $query = "SELECT * FROM " . $this->table . " ORDER BY id_obat ASC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll();

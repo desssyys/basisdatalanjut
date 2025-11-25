@@ -16,7 +16,7 @@ class JanjiModel {
                   LEFT JOIN pasien p ON j.id_pasien = p.id_pasien
                   LEFT JOIN dokter d ON j.id_dokter = d.id_dokter
                   LEFT JOIN spesialisasi s ON d.id_spesialisasi = s.id_spesialisasi
-                  ORDER BY j.tanggal DESC, j.jam DESC";
+                  ORDER BY j.tanggal ASC, j.jam ASC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll();

@@ -11,7 +11,7 @@ class PasienModel {
     }
 
     public function getAll() {
-        $query = "SELECT * FROM " . $this->table . " ORDER BY id_pasien DESC";
+        $query = "SELECT * FROM " . $this->table . " ORDER BY id_pasien ASC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll();

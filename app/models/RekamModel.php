@@ -16,7 +16,7 @@ class RekamModel {
                   LEFT JOIN pasien p ON r.id_pasien = p.id_pasien
                   LEFT JOIN dokter d ON r.id_dokter = d.id_dokter
                   LEFT JOIN obat o ON r.id_obat = o.id_obat
-                  ORDER BY r.id_rekam_medis DESC";
+                  ORDER BY r.id_rekam_medis ASC";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();

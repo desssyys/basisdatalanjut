@@ -14,7 +14,7 @@ class DokterModel {
         $query = "SELECT d.*, s.nama_spesialisasi 
                   FROM " . $this->table . " d 
                   LEFT JOIN spesialisasi s ON d.id_spesialisasi = s.id_spesialisasi 
-                  ORDER BY d.id_dokter DESC";
+                  ORDER BY d.id_dokter ASC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll();
