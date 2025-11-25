@@ -39,9 +39,10 @@
                             <td><?= htmlspecialchars($o['nama_obat']) ?></td>
                             <td>Rp <?= number_format($o['harga'], 0, ',', '.') ?></td>
                             <td>
-                                <span class="badge <?= $o['stok'] < 100 ? 'bg-danger' : 'bg-success' ?>">
-                                    <?= $o['stok'] ?>
+                                <span class="badge bg-success">
+                                     <?= $o['stok'] ?>
                                 </span>
+
                             </td>
                             <td>
                                 <a href="<?= BASE_URL ?>index.php?page=obat&action=edit&id=<?= $o['id_obat'] ?>" 
