@@ -66,6 +66,10 @@ if (!isset($_SESSION['user_id'])) {
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>index.php?page=laporan&type=pasien">Laporan Pasien</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>index.php?page=laporan&type=janji">Laporan Janji</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>index.php?page=laporan&type=obat">Laporan Obat</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>index.php?page=laporan&type=penyakit">Laporan Penyakit</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>index.php?page=laporan&type=statistik">Statistik Pasien</a></li>
+                        </ul>
+                    </li>
                         </ul>
                     </li>
                 </ul>
