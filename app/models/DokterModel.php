@@ -22,25 +22,16 @@ class DokterModel {
 
     // ======================= SEARCH =======================
     public function search($keyword) {
-    $query = "SELECT * FROM " . $this->table . " 
-              WHERE LOWER(nama_dokter) LIKE LOWER(:keyword)
-              ORDER BY id_dokter ASC";
+        $query = "SELECT * FROM " . $this->table . " 
+                WHERE LOWER(nama_dokter) LIKE LOWER(:keyword)
+                ORDER BY id_dokter ASC";
 
-    $stmt = $this->conn->prepare($query);
-    $keyword = "%".$keyword."%"; // agar bisa match sebagian
-    $stmt->bindParam(':keyword', $keyword);
-    $stmt->execute();
-
-    return $stmt->fetchAll();
-}
-    // ======================================================
-
-    public function getById($id) {
-        $query = "SELECT * FROM " . $this->table . " WHERE id_dokter = :id";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $id);
+        $keyword = "%".$keyword."%"; // agar bisa match sebagian
+        $stmt->bindParam(':keyword', $keyword);
         $stmt->execute();
-        return $stmt->fetch();
+
+        return $stmt->fetchAll();
     }
 
     public function create($data) {
