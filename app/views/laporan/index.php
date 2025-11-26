@@ -7,8 +7,6 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-body">
         <?php if ($type == 'pasien'): ?>
             <!-- Laporan Pasien -->
             <h5 class="card-title">Laporan Pasien</h5>

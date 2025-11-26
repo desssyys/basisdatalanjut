@@ -12,9 +12,6 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-body">
-
     <form method="GET" style="margin-bottom: 15px;">
     <input type="hidden" name="page" value="obat">
     <input type="text" name="search" placeholder="Cari nama obat..." 
