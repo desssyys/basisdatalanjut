@@ -2,32 +2,10 @@
 
 <div class="row">
     <div class="col-12">
-        <h2><i class="fas fa-chart-bar"></i> Laporan</h2>
+        <h2>Laporan</h2>
         <hr>
     </div>
 </div>
-
-<!-- Menu Tabs -->
-<ul class="nav nav-tabs mb-3">
-    <li class="nav-item">
-        <a class="nav-link <?= $type == 'pasien' ? 'active' : '' ?>" 
-           href="<?= BASE_URL ?>index.php?page=laporan&type=pasien">
-            Laporan Pasien
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link <?= $type == 'janji' ? 'active' : '' ?>" 
-           href="<?= BASE_URL ?>index.php?page=laporan&type=janji">
-            Laporan Janji
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link <?= $type == 'obat' ? 'active' : '' ?>" 
-           href="<?= BASE_URL ?>index.php?page=laporan&type=obat">
-            Laporan Obat
-        </a>
-    </li>
-</ul>
 
 <div class="card">
     <div class="card-body">
