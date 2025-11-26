@@ -26,14 +26,12 @@
     </button>
 </form>
 
-<div class="card">
-    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>ID</th>
+                        <th>ID Rekam Medis</th>
                         <th>Nama Pasien</th>
                         <th>Nama Dokter</th>
                         <th>Diagnosis</th>

@@ -7,28 +7,6 @@
     </div>
 </div>
 
-<!-- Menu Tabs -->
-<ul class="nav nav-tabs mb-3">
-    <li class="nav-item">
-        <a class="nav-link <?= $type == 'pasien' ? 'active' : '' ?>" 
-           href="<?= BASE_URL ?>index.php?page=laporan&type=pasien">
-            Laporan Pasien
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link <?= $type == 'janji' ? 'active' : '' ?>" 
-           href="<?= BASE_URL ?>index.php?page=laporan&type=janji">
-            Laporan Janji
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link <?= $type == 'obat' ? 'active' : '' ?>" 
-           href="<?= BASE_URL ?>index.php?page=laporan&type=obat">
-            Laporan Obat
-        </a>
-    </li>
-</ul>
-
 <div class="card">
     <div class="card-body">
         <?php if ($type == 'pasien'): ?>

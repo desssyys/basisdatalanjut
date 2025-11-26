@@ -31,7 +31,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>ID</th>
+                        <th>ID Janji Temu</th>
                         <th>Tanggal</th>
                         <th>Jam</th>
                         <th>Nama Pasien</th>
