@@ -16,6 +16,21 @@ class ObatModel {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    
+// ======================= SEARCH =======================
+public function search($keyword) {
+    $query = "SELECT * FROM " . $this->table . " 
+              WHERE LOWER(nama_obat) LIKE LOWER(:keyword)
+              ORDER BY id_obat ASC";
+
+    $stmt = $this->conn->prepare($query);
+    $keyword = "%".$keyword."%"; // agar bisa match sebagian
+    $stmt->bindParam(':keyword', $keyword);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+// ======================================================
 
     public function getById($id) {
         $query = "SELECT * FROM " . $this->table . " WHERE id_obat = :id";

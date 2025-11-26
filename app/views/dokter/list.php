@@ -8,6 +8,18 @@
                 <i class="fas fa-plus"></i> Tambah Dokter
             </a>
         </div>
+
+        <!-- SEARCH BAR -->
+        <form method="GET" action="">
+            <input type="hidden" name="page" value="dokter">
+            <div class="input-group mb-3" style="max-width: 300px;">
+                <input type="text" name="search" class="form-control"
+                       placeholder="Cari dokter / spesialis / email..."
+                       value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                <button class="btn btn-dark">Cari</button>
+            </div>
+        </form>
+
         <hr>
     </div>
 </div>

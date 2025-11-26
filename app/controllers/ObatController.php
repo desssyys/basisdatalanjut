@@ -8,8 +8,15 @@ class ObatController {
         $this->model = new ObatModel();
     }
 
+    // ===== FIXED: hanya ada 1 index(), dan sudah support search =====
     public function index() {
-        $obat = $this->model->getAll();
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $obat = $this->model->search($keyword);
+        } else {
+            $obat = $this->model->getAll();
+        }
+
         require_once '../app/views/obat/list.php';
     }
 

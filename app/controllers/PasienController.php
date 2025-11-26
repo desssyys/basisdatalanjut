@@ -7,11 +7,17 @@ class PasienController {
     public function __construct() {
         $this->model = new PasienModel();
     }
-
     public function index() {
-        $pasien = $this->model->getAll();
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $pasien = $this->model->search($keyword);
+        } else {
+            $pasien = $this->model->getAll();
+        }
+
         require_once '../app/views/pasien/list.php';
     }
+
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

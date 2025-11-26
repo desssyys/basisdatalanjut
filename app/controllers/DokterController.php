@@ -9,7 +9,14 @@ class DokterController {
     }
 
     public function index() {
-        $dokter = $this->model->getAll();
+
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $dokter = $this->model->search($keyword);
+        } else {
+            $dokter = $this->model->getAll();
+        }
+
         require_once '../app/views/dokter/list.php';
     }
 

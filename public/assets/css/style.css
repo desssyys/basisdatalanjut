@@ -814,8 +814,9 @@ body {
    HEADER INFORMASI
    ================================ */
 .info-header {
-    background: #0d6efd;
-    color: white;
+    background: #dc3545 !important;
+    background-color: #dc3545 !important;
+    color: white !important;
     padding: 12px;
     font-weight: bold;
 }

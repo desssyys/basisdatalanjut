@@ -8,6 +8,16 @@
                 <i class="fas fa-plus"></i> Tambah Janji Temu
             </a>
         </div>
+
+        <!-- SEARCH -->
+        <form method="GET" action="" class="mb-3 d-flex">
+            <input type="hidden" name="page" value="janji">
+            <input type="text" name="search" class="form-control me-2"
+                   placeholder="Cari janji (nama pasien, dokter, tanggal...)"
+                   value="<?= $_GET['search'] ?? '' ?>">
+            <button class="btn btn-success"><i class="fas fa-search"></i> Cari</button>
+        </form>
+
         <hr>
     </div>
 </div>

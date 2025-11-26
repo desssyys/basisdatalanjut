@@ -17,6 +17,19 @@ class PasienModel {
         return $stmt->fetchAll();
     }
 
+    public function search($keyword) {
+        $keyword = "%$keyword%";
+        $query = "SELECT * FROM " . $this->table . " 
+                WHERE nama_pasien LIKE :keyword 
+                ORDER BY id_pasien ASC";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':keyword', $keyword);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+
     public function getById($id) {
         $query = "SELECT * FROM " . $this->table . " WHERE id_pasien = :id";
         $stmt = $this->conn->prepare($query);

@@ -15,7 +15,13 @@ class JanjiController {
     }
 
     public function index() {
-        $janji = $this->model->getAll();
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $janji = $this->model->search($keyword);
+        } else {
+            $janji = $this->model->getAll();
+        }
+
         require_once '../app/views/janji/list.php';
     }
 
@@ -24,16 +30,16 @@ class JanjiController {
             $data = [
                 'pasien_id' => $_POST['pasien_id'],
                 'dokter_id' => $_POST['dokter_id'],
-                'tanggal' => $_POST['tanggal'],
-                'jam' => $_POST['jam']
+                'tanggal'   => $_POST['tanggal'],
+                'jam'       => $_POST['jam']
             ];
-            
+
             if ($this->model->create($data)) {
                 header('Location: ' . BASE_URL . 'index.php?page=janji');
                 exit;
             }
         }
-        
+
         $pasien = $this->pasienModel->getAll();
         $dokter = $this->dokterModel->getAll();
         require_once '../app/views/janji/form.php';
@@ -41,21 +47,21 @@ class JanjiController {
 
     public function edit() {
         $id = $_GET['id'];
-        
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
                 'pasien_id' => $_POST['pasien_id'],
                 'dokter_id' => $_POST['dokter_id'],
-                'tanggal' => $_POST['tanggal'],
-                'jam' => $_POST['jam']
+                'tanggal'   => $_POST['tanggal'],
+                'jam'       => $_POST['jam']
             ];
-            
+
             if ($this->model->update($id, $data)) {
                 header('Location: ' . BASE_URL . 'index.php?page=janji');
                 exit;
             }
         }
-        
+
         $janji = $this->model->getById($id);
         $pasien = $this->pasienModel->getAll();
         $dokter = $this->dokterModel->getAll();

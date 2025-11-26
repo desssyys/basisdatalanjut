@@ -14,6 +14,18 @@
 
 <div class="card">
     <div class="card-body">
+        
+<form method="GET" style="margin-bottom: 15px;">
+    <input type="hidden" name="page" value="pasien">
+    <input type="text" name="search" placeholder="Cari nama pasien..." 
+           value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" 
+           style="padding: 6px; width: 200px;">
+
+    <button type="submit" style="padding: 6px 12px; cursor:pointer;">
+        Cari
+    </button>
+</form>
+
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead class="table-dark">

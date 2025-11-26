@@ -21,6 +21,34 @@ class JanjiModel {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function search($keyword) {
+        $query = "SELECT 
+                    j.id_janji_temu,
+                    j.tanggal,
+                    j.jam,
+                    p.nama_pasien,
+                    d.nama_dokter,
+                    s.nama_spesialisasi
+                FROM " . $this->table . " j
+                LEFT JOIN pasien p ON j.id_pasien = p.id_pasien
+                LEFT JOIN dokter d ON j.id_dokter = d.id_dokter
+                LEFT JOIN spesialisasi s ON d.id_spesialisasi = s.id_spesialisasi
+                WHERE 
+                    LOWER(CAST(j.tanggal AS TEXT)) LIKE LOWER(:keyword)
+                OR LOWER(CAST(j.jam AS TEXT)) LIKE LOWER(:keyword)
+                OR LOWER(COALESCE(p.nama_pasien, '')) LIKE LOWER(:keyword)
+                OR LOWER(COALESCE(d.nama_dokter, '')) LIKE LOWER(:keyword)
+                OR LOWER(COALESCE(s.nama_spesialisasi, '')) LIKE LOWER(:keyword)
+                ORDER BY j.id_janji_temu ASC";
+
+        $stmt = $this->conn->prepare($query);
+        $keyword = "%".$keyword."%";
+        $stmt->bindParam(':keyword', $keyword);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
 
     public function getById($id) {
         $query = "SELECT * FROM " . $this->table . " WHERE id_janji_temu = :id";
@@ -65,15 +93,6 @@ class JanjiModel {
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
-    }
-
-    public function countToday() {
-        $query = "SELECT COUNT(*) as total FROM " . $this->table . " 
-                  WHERE tanggal = CURRENT_DATE";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->fetch();
-        return $result['total'];
     }
 }
 ?>
