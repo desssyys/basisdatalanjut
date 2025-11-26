@@ -8,23 +8,27 @@
                 <i class="fas fa-plus"></i> Tambah Dokter
             </a>
         </div>
+        <hr>
+    </div>
+</div>
 
 <div class="card">
     <div class="card-body">
 
-    <form method="GET" style="margin-bottom: 15px;">
-    <input type="hidden" name="page" value="dokter">
-    <input type="text" name="search" placeholder="Cari nama dokter" 
-           value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" 
-           style="padding: 6px; width: 200px;">
+        <!-- Form Search -->
+        <form method="GET" style="margin-bottom: 15px;">
+            <input type="hidden" name="page" value="dokter">
 
-    <button type="submit" style="padding: 6px 12px; cursor:pointer;">
-        Cari
-    </button>
-</form>
+            <input type="text" name="search" placeholder="Cari nama dokter..."
+                value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>"
+                style="padding: 6px; width: 200px;">
 
-<div class="card">
-    <div class="card-body">
+            <button type="submit" style="padding: 6px 12px; cursor:pointer;">
+                Cari
+            </button>
+        </form>
+
+        <!-- Table -->
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
@@ -38,6 +42,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php if (empty($dokter)): ?>
                         <tr>
@@ -50,16 +55,17 @@
                             <td><?= $d['id_dokter'] ?></td>
                             <td><?= htmlspecialchars($d['nama_dokter']) ?></td>
                             <td><?= htmlspecialchars($d['nama_spesialisasi'] ?? '-') ?></td>
-                            <td><?= $d['no_hp'] ?></td>
-                            <td><?= $d['email'] ?></td>
+                            <td><?= htmlspecialchars($d['no_hp']) ?></td>
+                            <td><?= htmlspecialchars($d['email']) ?></td>
                             <td>
                                 <a href="<?= BASE_URL ?>index.php?page=dokter&action=edit&id=<?= $d['id_dokter'] ?>" 
-                                   class="btn btn-sm btn-warning">
+                                    class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i>
                                 </a>
+
                                 <a href="<?= BASE_URL ?>index.php?page=dokter&action=delete&id=<?= $d['id_dokter'] ?>" 
-                                   class="btn btn-sm btn-danger"
-                                   onclick="return confirm('Yakin ingin menghapus?')">
+                                    class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Yakin ingin menghapus?')">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
@@ -69,6 +75,7 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 </div>
 
