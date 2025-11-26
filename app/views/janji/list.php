@@ -3,32 +3,29 @@
 <div class="row">
     <div class="col-12">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2><i class="fas fa-calendar-check"></i> Data Janji Temu</h2>
+            <h2><i class="fas fa-users"></i> Data Janji Temu</h2>
             <a href="<?= BASE_URL ?>index.php?page=janji&action=create" class="btn btn-primary">
                 <i class="fas fa-plus"></i> Tambah Janji Temu
             </a>
         </div>
-
-        <div class="card">
-    <div class="card-body">
-
-    <form method="GET" style="margin-bottom: 15px;">
-    <input type="hidden" name="page" value="janji">
-    <input type="text" name="search" placeholder="Cari janji temu" 
-           value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" 
-           style="padding: 6px; width: 200px;">
-
-    <button type="submit" style="padding: 6px 12px; cursor:pointer;">
-        Cari
-    </button>
-    </form>
-
         <hr>
     </div>
 </div>
 
 <div class="card">
     <div class="card-body">
+        
+<form method="GET" style="margin-bottom: 15px;">
+    <input type="hidden" name="page" value="janji">
+    <input type="text" name="search" placeholder="Cari janji temu..." 
+           value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" 
+           style="padding: 6px; width: 200px;">
+
+    <button type="submit" style="padding: 6px 12px; cursor:pointer;">
+        Cari
+    </button>
+</form>
+
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead class="table-dark">

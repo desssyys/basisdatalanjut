@@ -45,10 +45,10 @@ body {
    ==================================== */
 
 .card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
     margin-bottom: 20px;
 }
 
@@ -78,6 +78,7 @@ body {
 .card.bg-danger .card-footer {
     border-top: 1px solid rgba(255,255,255,0.2);
 }
+
 
 /* ====================================
    TABLES
