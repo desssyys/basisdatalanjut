@@ -10,22 +10,23 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= APP_NAME ?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="<?= BASE_URL ?>assets/css/style.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="<?= BASE_URL ?>index.php?page=dashboard">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="nav-brand" href="<?= BASE_URL ?>index.php?page=dashboard">
                 <i class="fas fa-hospital"></i> <?= APP_NAME ?>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="nav-toggler" id="navToggler" type="button" aria-label="Toggle navigation">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_URL ?>index.php?page=dashboard">
                             <i class="fas fa-home"></i> Dashboard
@@ -57,7 +58,7 @@ if (!isset($_SESSION['user_id'])) {
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="laporanDropdown" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="laporanDropdown">
                             <i class="fas fa-chart-bar"></i> Laporan
                         </a>
                         <ul class="dropdown-menu">
@@ -68,12 +69,12 @@ if (!isset($_SESSION['user_id'])) {
                         </ul>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="nav-list nav-right">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown">
                             <i class="fas fa-user"></i> <?= $_SESSION['username'] ?>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
+                        <ul class="dropdown-menu dropdown-menu-right">
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>index.php?page=logout">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a></li>
@@ -85,4 +86,4 @@ if (!isset($_SESSION['user_id'])) {
     </nav>
 
     <!-- Main Content -->
-    <div class="container-fluid mt-4">
+    <div class="main-container">

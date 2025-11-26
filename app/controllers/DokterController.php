@@ -9,7 +9,6 @@ class DokterController {
     }
 
     public function index() {
-
         if (isset($_GET['search']) && !empty($_GET['search'])) {
             $keyword = $_GET['search'];
             $dokter = $this->model->search($keyword);

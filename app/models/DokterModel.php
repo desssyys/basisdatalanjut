@@ -22,23 +22,17 @@ class DokterModel {
 
     // ======================= SEARCH =======================
     public function search($keyword) {
-        $keyword = "%".strtolower($keyword)."%";
+    $query = "SELECT * FROM " . $this->table . " 
+              WHERE LOWER(nama_dokter) LIKE LOWER(:keyword)
+              ORDER BY id_dokter ASC";
 
-        $query = "SELECT d.*, s.nama_spesialisasi 
-                  FROM {$this->table} d
-                  LEFT JOIN spesialisasi s ON d.id_spesialisasi = s.id_spesialisasi
-                  WHERE LOWER(d.nama_dokter) LIKE :kw
-                     OR LOWER(s.nama_spesialisasi) LIKE :kw
-                     OR LOWER(d.email) LIKE :kw
-                     OR LOWER(d.no_hp) LIKE :kw
-                  ORDER BY d.id_dokter ASC";
+    $stmt = $this->conn->prepare($query);
+    $keyword = "%".$keyword."%"; // agar bisa match sebagian
+    $stmt->bindParam(':keyword', $keyword);
+    $stmt->execute();
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':kw', $keyword);
-        $stmt->execute();
-
-        return $stmt->fetchAll();
-    }
+    return $stmt->fetchAll();
+}
     // ======================================================
 
     public function getById($id) {

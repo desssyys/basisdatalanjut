@@ -9,20 +9,19 @@
             </a>
         </div>
 
-        <!-- SEARCH BAR -->
-        <form method="GET" action="">
-            <input type="hidden" name="page" value="dokter">
-            <div class="input-group mb-3" style="max-width: 300px;">
-                <input type="text" name="search" class="form-control"
-                       placeholder="Cari dokter / spesialis / email..."
-                       value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
-                <button class="btn btn-dark">Cari</button>
-            </div>
-        </form>
+<div class="card">
+    <div class="card-body">
 
-        <hr>
-    </div>
-</div>
+    <form method="GET" style="margin-bottom: 15px;">
+    <input type="hidden" name="page" value="dokter">
+    <input type="text" name="search" placeholder="Cari nama dokter" 
+           value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" 
+           style="padding: 6px; width: 200px;">
+
+    <button type="submit" style="padding: 6px 12px; cursor:pointer;">
+        Cari
+    </button>
+</form>
 
 <div class="card">
     <div class="card-body">

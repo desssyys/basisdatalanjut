@@ -18,7 +18,13 @@ class RekamController {
     }
 
     public function index() {
-        $rekam = $this->model->getAll();
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $rekam = $this->model->search($keyword);
+        } else {
+            $rekam = $this->model->getAll();
+        }
+
         require_once '../app/views/rekam/list.php';
     }
 

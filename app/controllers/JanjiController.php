@@ -14,7 +14,7 @@ class JanjiController {
         $this->dokterModel = new DokterModel();
     }
 
-    public function index() {
+   public function index() {
         if (isset($_GET['search']) && !empty($_GET['search'])) {
             $keyword = $_GET['search'];
             $janji = $this->model->search($keyword);
