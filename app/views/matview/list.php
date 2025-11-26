@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h2><i class="fas fa-eye"></i> View Laporan Klinik</h2>
+        <h2></i> View Laporan Klinik</h2>
         <hr>
     </div>
 </div>

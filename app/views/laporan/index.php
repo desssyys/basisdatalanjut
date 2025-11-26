@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h2><i class="fas fa-chart-bar"></i> Laporan</h2>
+        <h2>Laporan</h2>
         <hr>
     </div>
 </div>
