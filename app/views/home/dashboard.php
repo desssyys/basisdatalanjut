@@ -34,7 +34,7 @@
 
     <div class="card-box bg-teal">
         <div class="card-info">
-            <h6>Janji Hari Ini</h6>
+            <h6>Total Janji Temu</h6>
             <h2><?= $stats['janji_hari_ini'] ?></h2>
         </div>
         <i class="fas fa-calendar-check card-icon"></i>
