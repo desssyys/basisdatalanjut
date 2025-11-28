@@ -1,7 +1,7 @@
 </div> 
 <footer class="footer-custom">
     <div class="footer-text">
-        © <?= date('Y') ?> <?= APP_NAME ?>. All rights reserved.
+        <?= APP_NAME ?>
     </div>
 </footer>
 <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">

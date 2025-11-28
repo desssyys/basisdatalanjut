@@ -27,6 +27,17 @@ class DbadminController {
             case 'obat':
                 $data = $this->model->getLaporanObat();
                 break;
+            case 'dokter':
+            $data = $this->model->getLaporanDokter();
+                break;
+            case 'penyakit':
+                $data = $this->model->getLaporanPenyakit();
+                break;
+            case 'statistik':
+                $data = $this->model->getStatistikPasien();
+                break;
+            default:
+                $data = []; 
         }
         
         require_once '../app/views/laporan/index.php';
