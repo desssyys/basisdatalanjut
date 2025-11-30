@@ -83,17 +83,19 @@
                         <th>Harga</th>
                         <th>Stok</th>
                         <th>Total Penggunaan</th>
-                        <th>Total Nilai</th>
+                        <!-- Kolom "Total Nilai" Dihilangkan -->
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (empty($data)): ?>
-                        <tr><td colspan="6" class="text-center">Tidak ada data</td></tr>
+                        <!-- Perubahan colspan dari 6 menjadi 5 -->
+                        <tr><td colspan="5" class="text-center">Tidak ada data</td></tr>
                     <?php else: ?>
                         <?php $no = 1; foreach ($data as $d): ?>
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= htmlspecialchars($d['nama_obat']) ?></td>
+                            <!-- Pastikan harga selalu ada (diambil dari tabel master) -->
                             <td>Rp <?= number_format($d['harga'], 0, ',', '.') ?></td>
                             <td>
                                 <span class="badge <?= $d['stok'] < 100 ? 'bg-danger' : 'bg-success' ?>">
@@ -101,7 +103,7 @@
                                 </span>
                             </td>
                             <td><span class="badge bg-info"><?= $d['total_penggunaan'] ?></span></td>
-                            <td>Rp <?= number_format($d['total_nilai'], 0, ',', '.') ?></td>
+                            <!-- Kolom "Total Nilai" Dihilangkan -->
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -171,6 +173,25 @@
 
     <?php elseif ($type == 'statistik'): ?>
         <h5 class="card-title">Statistik Pasien Berdasarkan Usia & Jenis Kelamin</h5>
+        
+        <?php
+            // Karena ReportModel::getStatistikPasien() sekarang mengembalikan array tunggal dari MV, 
+            // kita perlu memisahkannya lagi di View.
+            $statistik_jk = [];
+            $statistik_usia = [];
+            
+            // Loop melalui data tunggal dari MV
+            foreach ($data as $stat) {
+                if (isset($stat['jenis_kelamin'])) {
+                    // Ini adalah baris Jenis Kelamin
+                    $statistik_jk[] = $stat;
+                } elseif (isset($stat['kelompok'])) {
+                    // Ini adalah baris Kelompok Usia
+                    $statistik_usia[] = $stat;
+                }
+            }
+        ?>
+
         <div class="row">
             <div class="col-md-6">
                 <h6>Statistik Jenis Kelamin</h6>
@@ -183,11 +204,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($data['jenis_kelamin'])): ?>
+                        <?php if (empty($statistik_jk)): ?>
                             <tr><td colspan="3" class="text-center">Tidak ada data</td></tr>
                         <?php else: ?>
-                            <?php foreach ($data['jenis_kelamin'] as $jk): ?>
+                            <?php foreach ($statistik_jk as $jk): ?>
                             <tr>
+                                <!-- MV harusnya menyediakan kolom 'jenis_kelamin', 'jumlah', 'persentase' -->
                                 <td><?= $jk['jenis_kelamin'] ?></td>
                                 <td><?= $jk['jumlah'] ?></td>
                                 <td><span class="badge bg-primary"><?= number_format($jk['persentase'], 2, ',', '.') ?>%</span></td>
@@ -208,11 +230,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($data['kelompok_usia'])): ?>
+                        <?php if (empty($statistik_usia)): ?>
                             <tr><td colspan="3" class="text-center">Tidak ada data</td></tr>
                         <?php else: ?>
-                            <?php foreach ($data['kelompok_usia'] as $usia): ?>
+                            <?php foreach ($statistik_usia as $usia): ?>
                             <tr>
+                                <!-- MV harusnya menyediakan kolom 'kelompok', 'jumlah', 'persentase' -->
                                 <td><?= $usia['kelompok'] ?></td>
                                 <td><?= $usia['jumlah'] ?></td>
                                 <td><span class="badge bg-success"><?= number_format($usia['persentase'], 2, ',', '.') ?>%</span></td>
