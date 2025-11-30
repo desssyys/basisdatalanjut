@@ -209,34 +209,8 @@
                             <tr>
                                 <!-- MV harusnya menyediakan kolom 'jenis_kelamin', 'jumlah', 'persentase' -->
                                 <td><?= $jk['jenis_kelamin'] ?></td>
-                                <td><?= $jk['jumlah'] ?></td>
+                                <td><?= $jk['jumlah_pasien'] ?></td>
                                 <td><span class="badge bg-primary"><?= number_format($jk['persentase'], 2, ',', '.') ?>%</span></td>
-                            </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-6">
-                <h6>Statistik Kelompok Usia</h6>
-                <table class="table table-bordered table-sm">
-                    <thead class="table-success">
-                        <tr>
-                            <th>Kelompok Usia</th>
-                            <th>Jumlah Pasien</th>
-                            <th>Persentase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (empty($statistik_usia)): ?>
-                            <tr><td colspan="3" class="text-center">Tidak ada data</td></tr>
-                        <?php else: ?>
-                            <?php foreach ($statistik_usia as $usia): ?>
-                            <tr>
-                                <!-- MV harusnya menyediakan kolom 'kelompok', 'jumlah', 'persentase' -->
-                                <td><?= $usia['kelompok'] ?></td>
-                                <td><?= $usia['jumlah'] ?></td>
-                                <td><span class="badge bg-success"><?= number_format($usia['persentase'], 2, ',', '.') ?>%</span></td>
                             </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
