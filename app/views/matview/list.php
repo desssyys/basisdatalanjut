@@ -7,8 +7,6 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-body">
         <p class="text-muted">
         </p>
         <div class="table-responsive">

@@ -151,7 +151,6 @@
                         <th>No</th>
                         <th>Nama Penyakit (Diagnosis)</th>
                         <th>Total Kasus</th>
-                        <th>Persentase</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -163,7 +162,6 @@
                             <td><?= $no++ ?></td>
                             <td><?= htmlspecialchars($d['nama_penyakit']) ?></td>
                             <td><span class="badge bg-danger"><?= $d['total_kasus'] ?></span></td>
-                            <td><?= number_format($d['persentase'], 2, ',', '.') ?>%</td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
