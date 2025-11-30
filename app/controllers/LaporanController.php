@@ -47,5 +47,22 @@ class LaporanController extends Controller {
             'data' => $data
         ]);
     }
+
+    public function topDiagnosis(Request $request)
+    {
+    // default: Top 10
+    $limit = $request->input('limit', 10);
+
+    // query data diagnosis terbanyak
+    $data = DB::table('rekam_medis')
+        ->select('diagnosis', DB::raw('COUNT(*) as total'))
+        ->groupBy('diagnosis')
+        ->orderBy('total', 'DESC')
+        ->limit($limit)
+        ->get();
+
+    return view('laporan.top_diagnosis', compact('data', 'limit'));
+}
+
 }
  

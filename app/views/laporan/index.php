@@ -154,6 +154,15 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                <form method="GET" action="{{ route('laporan.top_diagnosis') }}" class="mb-3">
+                    <label for="limit" class="form-label">Tampilkan:</label>
+                    <select name="limit" id="limit" class="form-select" style="width:150px;" onchange="this.form.submit()">
+                        <option value="5"  {{ request('limit') == 5  ? 'selected' : '' }}>Top 5</option>
+                        <option value="10" {{ request('limit') == 10 ? 'selected' : '' }}>Top 10</option>
+                    </select>
+                </form>
+
                     <?php if (empty($data)): ?>
                         <tr><td colspan="4" class="text-center">Tidak ada data</td></tr>
                     <?php else: ?>
