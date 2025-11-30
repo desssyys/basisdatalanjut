@@ -170,7 +170,7 @@
         </div>
 
     <?php elseif ($type == 'statistik'): ?>
-        <h5 class="card-title">Statistik Pasien Berdasarkan Usia & Jenis Kelamin</h5>
+        <h5 class="card-title">Statistik Pasien Berdasarkan Jenis Kelamin</h5>
         
         <?php
             // Karena ReportModel::getStatistikPasien() sekarang mengembalikan array tunggal dari MV, 
